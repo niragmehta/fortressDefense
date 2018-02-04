@@ -1,4 +1,4 @@
-
+package GameLogic;
 
 public class mainClass
 {
