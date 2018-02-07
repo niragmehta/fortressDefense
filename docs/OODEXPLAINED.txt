@@ -15,5 +15,10 @@ To handle the active tank collection and fortress health
 -We create a class called Fortress that hols the health of the user's Fortress
 -Based on the status of tanks in the TankCollection object, we reduce the health of our fortress accordingly until the user wins/loses
 
-
+To instantiate and initialize the board with tanks, we
+Create a Game class which
+-adds tanks to the Board object
+-updates the board object
+-checks if the user is victorious or not (ie the user loses)
+-displays the furst introductury message on the screen
 
