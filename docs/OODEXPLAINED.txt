@@ -20,5 +20,6 @@ Create a Game class which
 -adds tanks to the Board object
 -updates the board object
 -checks if the user is victorious or not (ie the user loses)
--displays the furst introductury message on the screen
+-displays the first introductory message on the screen
+
 
