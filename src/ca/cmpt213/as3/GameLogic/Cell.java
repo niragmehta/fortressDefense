@@ -35,7 +35,6 @@ public class Cell {
         this.visibility = visibility;
     }
 
-    public char get
     // removed setCoordinates because I don't think we'll move a tank after it is placed down
 
 

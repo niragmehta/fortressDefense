@@ -14,7 +14,7 @@ public class Tank {
     Tank(){
         this.health = 4;
         this.damage = this.calculateDamage();
-        this.shape = generateTankShape();
+        //this.shape = generateTankShape();
     }
 
     // changed into private from UML diagram
@@ -37,7 +37,5 @@ public class Tank {
         this.isFunctioning = status;
     }
 
-    public shape generateTankShape(){
-        // code to set the shape
-    }
+
 }

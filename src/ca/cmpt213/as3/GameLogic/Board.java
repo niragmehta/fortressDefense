@@ -1,18 +1,14 @@
 package ca.cmpt213.as3.GameLogic;
 
 public class Board {
-    Cell[][] cellMatrix;
+    private int health;
 
     public Board() {
-        cellMatrix = null;
+
+        health = 1500;
     }
 
-    public void updateCell(Cell cell){
+    public void updateHealth(TankCollection tankList) {
 
-    }
-
-    public boolean populateBoard(TankCollection tankList) {
-        boolean flag = false;
-        return flag;
     }
 }
