@@ -12,6 +12,10 @@ public class Board {
         {
             for(int j=0;j<10;j++)
             {
+                StringBuilder coordinates=new StringBuilder();
+                coordinates.append((char)('A'+i));
+                coordinates.append((char)('0'+j+1));
+                cell.setCoordinates(coordinates.toString());
                 cellMatrix[i][j]=cell;
             }
         }

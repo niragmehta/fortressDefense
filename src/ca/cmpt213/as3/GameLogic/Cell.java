@@ -5,6 +5,9 @@ public class Cell {
     private boolean visibility;
     private boolean hasTank;
 
+    public void setCoordinates(String coordinates) {
+        this.coordinates = coordinates;
+    }
 
     public Cell() {
         this.coordinates = coordinates;
