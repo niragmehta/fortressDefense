@@ -8,16 +8,21 @@ public class TankCollection {
     private int cumulativeDmgOutput;
 
     TankCollection(){
-        
+        this.tankList = null;
+        this.activeTankCount =0;
+        this.cumulativeDmgOutput = 0;
     }
 
     public void calculateCumalativeDmgOutput()
     {
-        cumulativeDmgOutput=0;
         for(int i=0;i<tankList.size();i++)
         {
             if(tankList.get(i).isFunctioning())
                 cumulativeDmgOutput+=tankList.get(i).getDamage();
         }
+    }
+
+    public int getCumulativeDmgOutput() {
+        return cumulativeDmgOutput;
     }
 }
