@@ -9,7 +9,8 @@ public class Game
         Board board = new Board();
         UserInterface userInterface=new UserInterface();
         //userInterface.displayGameBoard(board);
-        userInterface.enterMoveInput();
+        String t=userInterface.enterMoveInput();
+        System.out.println(t);
     }
 
 }

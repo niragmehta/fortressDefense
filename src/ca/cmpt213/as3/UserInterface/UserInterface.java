@@ -70,6 +70,7 @@ public class UserInterface {
             System.out.println("Enter your move: ");
             Scanner scan=new Scanner(System.in);
             String input=scan.nextLine();
+            input=input.replace(" ","");
 
             if(checkInputValidity(input)==false)
             {
@@ -77,49 +78,7 @@ public class UserInterface {
                 continue;
             }
             else
-                return input;
-
-            /*
-            if(input.length()<2 || input.length()>3) {
-                System.out.println("Invalid target. Please enter a coordinate such as D10.");
-                continue;
-            }
-
-            char firstChar=input.charAt(0);
-            char secondChar=input.charAt(1);
-
-            if((firstChar >= 'A' && firstChar <= 'J') || (firstChar >= 'a' && firstChar <= 'j'))
-            {
-                //so far we've made sure our first character of input is valid
-                if(input.length()==2)
-                {
-                    if(secondChar>='0' || secondChar <='9')
-                    {
-                        return input;
-                    }
-                    else {
-                        System.out.println("Invalid target. Please enter a coordinate such as D10.");
-                        continue;
-                    }
-                }
-                if(input.length()==3)
-                {
-                    char thirdChar=input.charAt(2);
-                    if(secondChar=='1' && thirdChar=='0')
-                        return input;
-                    else{
-                        System.out.println("Invalid target. Please enter a coordinate such as D10.");
-                        continue;
-                    }
-                }
-
-            }
-            else
-            {
-                System.out.println("Invalid target. Please enter a coordinate such as D10.");
-                continue;
-            }
-            */
+                return input.toLowerCase();
 
         }
     }
