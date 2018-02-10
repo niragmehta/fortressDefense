@@ -4,8 +4,7 @@ public class Cell {
     private String coordinates;
     private boolean visibility;
     private boolean hasTank;
-
-
+    private char symbol;
 
     public Cell() {
         this.coordinates = coordinates;
@@ -30,8 +29,8 @@ public class Cell {
         this.visibility = visibility;
     }
 
-    public char getSymbol(){
-        char symbol = '@';
+    public void getSymbol(){
+        symbol = '@';
         if(visibility == false)
         {
             symbol = '~';
@@ -41,6 +40,5 @@ public class Cell {
             else
                 symbol = ' ';
         }
-        return symbol;
     }
 }
