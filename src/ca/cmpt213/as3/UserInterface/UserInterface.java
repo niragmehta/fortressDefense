@@ -65,13 +65,21 @@ public class UserInterface {
     public String enterMoveInput()
     {
 
-
         while (true)
         {
             System.out.println("Enter your move: ");
             Scanner scan=new Scanner(System.in);
             String input=scan.nextLine();
 
+            if(checkInputValidity(input)==false)
+            {
+                System.out.println("Invalid target. Please enter a coordinate such as D10.");
+                continue;
+            }
+            else
+                return input;
+
+            /*
             if(input.length()<2 || input.length()>3) {
                 System.out.println("Invalid target. Please enter a coordinate such as D10.");
                 continue;
@@ -111,9 +119,49 @@ public class UserInterface {
                 System.out.println("Invalid target. Please enter a coordinate such as D10.");
                 continue;
             }
+            */
 
         }
+    }
 
+    public boolean checkInputValidity(String input)
+    {
+        if(input.length()<2 || input.length()>3) {
+            return false;
+        }
+
+        char firstChar=input.charAt(0);
+        char secondChar=input.charAt(1);
+
+        if((firstChar >= 'A' && firstChar <= 'J') || (firstChar >= 'a' && firstChar <= 'j'))
+        {
+            //so far we've made sure our first character of input is valid
+            if(input.length()==2)
+            {
+                if(secondChar>='0' || secondChar <='9')
+                {
+                    return true;
+                }
+                else {
+
+                    return false;
+                }
+            }
+            if(input.length()==3)
+            {
+                char thirdChar=input.charAt(2);
+                if(secondChar=='1' && thirdChar=='0')
+                    return true;
+                else{
+                    return false;
+                }
+            }
+
+        }
+        else
+            return false;
+
+        return false;
 
     }
 
