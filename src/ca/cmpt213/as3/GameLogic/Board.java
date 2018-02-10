@@ -8,6 +8,10 @@ public class Board {
         cellMatrix = null;
     }
 
+    public Cell[][] getCellMatrix() {
+        return cellMatrix;
+    }
+
     public void updateCell(Cell cell){
 
     }
@@ -15,6 +19,8 @@ public class Board {
     public void populateBoard(TankCollection tankList) {
 
     }
+
+
 
 }
 
