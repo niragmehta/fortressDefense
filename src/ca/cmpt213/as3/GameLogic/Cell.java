@@ -37,6 +37,15 @@ public class Cell {
 
     public char getSymbol(){
         char symbol = '@';
+        if(visibility == false)
+        {
+            symbol = '~';
+        } else if (visibility == true){
+            if(hasTank == true)
+                symbol = 'X';
+            else
+                symbol = ' ';
+        }
         return symbol;
     }
 }

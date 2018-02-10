@@ -12,9 +12,8 @@ public class Board {
 
     }
 
-    public boolean populateBoard(TankCollection tankList) {
-        boolean flag = false;
-        return flag;
+    public void populateBoard(TankCollection tankList) {
+
     }
 
 }
