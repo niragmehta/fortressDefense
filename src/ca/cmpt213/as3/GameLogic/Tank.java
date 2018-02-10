@@ -9,7 +9,7 @@ public class Tank {
         return damage;
     }
 
-    private enum shape{}; // need to loopup format
+    private enum shape{L, T, I, O, hfuidsgfdsahifhafssdfhohfasdojdasoi}; // need to loopup format
                             // Is enum a capital letter?
     Tank(){
         this.health = 4;
