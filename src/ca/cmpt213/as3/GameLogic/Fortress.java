@@ -10,4 +10,8 @@ public class Fortress {
     public void updateHealth(TankCollection tankList){
         health = health - tankList.getCumulativeDmgOutput();
     }
+
+    public int getHealth() {
+        return health;
+    }
 }

@@ -1,6 +1,7 @@
 package ca.cmpt213.as3.UserInterface;
 
 import ca.cmpt213.as3.GameLogic.Board;
+import ca.cmpt213.as3.GameLogic.Fortress;
 
 public class UserInterface {
 
@@ -35,6 +36,11 @@ public class UserInterface {
             System.out.println();
         }
 
+    }
+
+    public void displayFortressHealth(Fortress fortress)
+    {
+        System.out.println("Fortress Structure Left: "+fortress.getHealth()+".");
     }
 
 
