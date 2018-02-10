@@ -1,9 +1,6 @@
 package ca.cmpt213.as3.UserInterface;
 
-import ca.cmpt213.as3.GameLogic.Board;
-import ca.cmpt213.as3.GameLogic.Fortress;
-import ca.cmpt213.as3.GameLogic.Tank;
-import ca.cmpt213.as3.GameLogic.TankCollection;
+import ca.cmpt213.as3.GameLogic.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,9 +61,59 @@ public class UserInterface {
 
     }
 
-    public void takeInput()
+
+    public String enterMoveInput()
     {
-        Scanner scan=new Scanner(System.in);
+
+
+        while (true)
+        {
+            System.out.println("Enter your move: ");
+            Scanner scan=new Scanner(System.in);
+            String input=scan.nextLine();
+
+            if(input.length()<2 || input.length()>3) {
+                System.out.println("Invalid target. Please enter a coordinate such as D10.\n");
+                continue;
+            }
+
+            char firstChar=input.charAt(0);
+            char secondChar=input.charAt(1);
+
+            if((firstChar >= 'A' && firstChar <= 'J') || (firstChar >= 'a' && firstChar <= 'j'))
+            {
+                //so far we've made sure our first character of input is valid
+                if(input.length()==2)
+                {
+                    if(secondChar>='0' || secondChar <='9')
+                    {
+                        return input;
+                    }
+                    else {
+                        System.out.println("Invalid target. Please enter a coordinate such as D10.\n");
+                        continue;
+                    }
+                }
+                if(input.length()==3)
+                {
+                    char thirdChar=input.charAt(2);
+                    if(secondChar=='1' && thirdChar=='0')
+                        return input;
+                    else{
+                        System.out.println("Invalid target. Please enter a coordinate such as D10.\n");
+                        continue;
+                    }
+                }
+
+            }
+            else
+            {
+                System.out.println("Invalid target. Please enter a coordinate such as D10.\n");
+                continue;
+            }
+
+        }
+
 
     }
 
