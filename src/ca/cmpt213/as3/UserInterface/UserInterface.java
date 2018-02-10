@@ -31,7 +31,7 @@ public class UserInterface {
         System.out.println("       1  2  3  4  5  6  7  8  9  10\n");   //display columns
         for(int i=0;i<10;i++)
         {
-            System.out.print("    " + (char) ('A' + i));
+            System.out.print("    " + (char) ('A' + i)+"  ");
             for(int j=0;j<10;j++)
             {
                 char charToDisplay=board.getCellMatrix()[i][j].getSymbol();

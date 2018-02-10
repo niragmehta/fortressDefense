@@ -5,14 +5,9 @@ public class Cell {
     private boolean visibility;
     private boolean hasTank;
 
-    /**
-     * Orginal UML had a non parametarised default constructor
-     *
-     * @param coordinates
-     * @param visibility
-     * @param hasTank
-     */
-    public Cell(String coordinates, boolean visibility, boolean hasTank) {
+
+
+    public Cell() {
         this.coordinates = coordinates;
         this.visibility = false;
         this.hasTank = false;
