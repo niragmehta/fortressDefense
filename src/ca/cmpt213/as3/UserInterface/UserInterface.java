@@ -73,7 +73,7 @@ public class UserInterface {
             String input=scan.nextLine();
 
             if(input.length()<2 || input.length()>3) {
-                System.out.println("Invalid target. Please enter a coordinate such as D10.\n");
+                System.out.println("Invalid target. Please enter a coordinate such as D10.");
                 continue;
             }
 
@@ -90,7 +90,7 @@ public class UserInterface {
                         return input;
                     }
                     else {
-                        System.out.println("Invalid target. Please enter a coordinate such as D10.\n");
+                        System.out.println("Invalid target. Please enter a coordinate such as D10.");
                         continue;
                     }
                 }
@@ -100,7 +100,7 @@ public class UserInterface {
                     if(secondChar=='1' && thirdChar=='0')
                         return input;
                     else{
-                        System.out.println("Invalid target. Please enter a coordinate such as D10.\n");
+                        System.out.println("Invalid target. Please enter a coordinate such as D10.");
                         continue;
                     }
                 }
@@ -108,7 +108,7 @@ public class UserInterface {
             }
             else
             {
-                System.out.println("Invalid target. Please enter a coordinate such as D10.\n");
+                System.out.println("Invalid target. Please enter a coordinate such as D10.");
                 continue;
             }
 
