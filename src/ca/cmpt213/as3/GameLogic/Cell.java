@@ -4,9 +4,15 @@ public class Cell {
     private String coordinates;
     private boolean visibility;
     private boolean hasTank;
-    private char symbol;
 
-    public Cell() {
+    /**
+     * Orginal UML had a non parametarised default constructor
+     *
+     * @param coordinates
+     * @param visibility
+     * @param hasTank
+     */
+    public Cell(String coordinates, boolean visibility, boolean hasTank) {
         this.coordinates = coordinates;
         this.visibility = false;
         this.hasTank = false;
@@ -29,8 +35,8 @@ public class Cell {
         this.visibility = visibility;
     }
 
-    public void getSymbol(){
-        symbol = '@';
+    public char getSymbol(){
+        char symbol = '@';
         if(visibility == false)
         {
             symbol = '~';
@@ -40,5 +46,6 @@ public class Cell {
             else
                 symbol = ' ';
         }
+        return symbol;
     }
 }
