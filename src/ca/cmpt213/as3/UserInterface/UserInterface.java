@@ -7,6 +7,7 @@ import ca.cmpt213.as3.GameLogic.TankCollection;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class UserInterface {
 
@@ -60,6 +61,12 @@ public class UserInterface {
                 System.out.println("Alive tank #"+counter+" of "+activeTankCount+" shot you for "+tempTank.getDamage()+" !");
             }
         }
+
+    }
+
+    public void takeInput()
+    {
+        Scanner scan=new Scanner(System.in);
 
     }
 
