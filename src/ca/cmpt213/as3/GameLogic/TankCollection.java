@@ -10,5 +10,14 @@ public class TankCollection {
     TankCollection(){
         
     }
-    calculateCumulativeDmgOutput
+
+    public void calculateCumalativeDmgOutput()
+    {
+        cumulativeDmgOutput=0;
+        for(int i=0;i<tankList.size();i++)
+        {
+            if(tankList.get(i).isFunctioning())
+                cumulativeDmgOutput+=tankList.get(i).getDamage();
+        }
+    }
 }

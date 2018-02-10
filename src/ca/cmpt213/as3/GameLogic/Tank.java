@@ -4,6 +4,11 @@ public class Tank {
     private int health;
     private boolean isFunctioning;
     private int damage;
+
+    public int getDamage() {
+        return damage;
+    }
+
     private enum shape{}; // need to loopup format
                             // Is enum a capital letter?
     Tank(){
