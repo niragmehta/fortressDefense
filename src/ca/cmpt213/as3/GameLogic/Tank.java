@@ -17,13 +17,16 @@ public class Tank {
     Tank(){
         this.health = 4;
         this.damage = this.calculateDamage();
-        this.shape = generateTankShape();
+        //this.shape = generateTankShape();
     }
 
+    /*
     private shape generateTankShape(){
         Random r = new Random();
         int Result = r.nextInt(High-Low) + Low;
     }
+    */
+
     // changed into private from UML diagram
     private int calculateDamage(){
         int damage = 0;
