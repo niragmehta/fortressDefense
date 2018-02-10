@@ -35,7 +35,10 @@ public class Cell {
         this.visibility = visibility;
     }
 
-    public char get
+    public char getSymbol(){
+        char symbol = '@';
+        return symbol;
+    }
     // removed setCoordinates because I don't think we'll move a tank after it is placed down
 
 
