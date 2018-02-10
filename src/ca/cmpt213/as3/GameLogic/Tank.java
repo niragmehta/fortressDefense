@@ -4,13 +4,14 @@ public class Tank {
     private int health;
     private boolean isFunctioning;
     private int damage;
+    private enum shape{L, T, I, O, hfuidsgfdsahifhafssdfhohfasdojdasoi} // need to loopup format
+    // Is enum a capital letter?
 
     public int getDamage() {
         return damage;
     }
 
-    private enum shape{L, T, I, O, hfuidsgfdsahifhafssdfhohfasdojdasoi}; // need to loopup format
-                            // Is enum a capital letter?
+
     Tank(){
         this.health = 4;
         this.damage = this.calculateDamage();

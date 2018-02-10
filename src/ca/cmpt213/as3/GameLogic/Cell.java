@@ -35,7 +35,8 @@ public class Cell {
         this.visibility = visibility;
     }
 
-
-
-
+    public char getSymbol(){
+        char symbol = '@';
+        return symbol;
+    }
 }
