@@ -19,14 +19,13 @@ public class Board {
                 cellMatrix[i][j]=cell;
             }
         }
-
     }
 
     public Cell[][] getCellMatrix() {
         return cellMatrix;
     }
 
-    public void updateCell(Cell cell){
+    public void updateCell(Cell cell, String coordinates){
 
     }
 
@@ -34,6 +33,16 @@ public class Board {
 
     }
 
+    public Cell searchCell(String coodinates){
+        // Extract x and y coordinates
+        int row = (int)coodinates.charAt(0) - 65;
+        int col = (int)coodinates.charAt(1) - 1;
+        // if coordinates has y = 10, set y as
+        if(coodinates.length() == 3){
+            col = 9;
+        }
+        return cellMatrix[row][col];
+    }
 
 
 }

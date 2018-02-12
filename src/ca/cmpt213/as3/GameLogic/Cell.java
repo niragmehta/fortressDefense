@@ -4,6 +4,8 @@ public class Cell {
     private String coordinates;
     private boolean visibility;
     private boolean hasTank;
+    private char row;
+    private int col;
 
     public void setCoordinates(String coordinates) {
         this.coordinates = coordinates;
