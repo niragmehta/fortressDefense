@@ -20,11 +20,23 @@ public class Board {
             {
                 Cell cell=new Cell();
                 StringBuilder coordinates=new StringBuilder();
+
+                if(j==9)
+                {
+                    coordinates.append((char)('A'+i));
+                    coordinates.append(("10"));
+                    cell.setCoordinates(coordinates.toString());
+                    cell.setRow(i);
+                    cell.setCol(j);
+                    cellMatrix[i][j]=cell;
+                    break;
+                }
+
                 coordinates.append((char)('A'+i));
                 coordinates.append((char)('0'+j+1));
                 cell.setCoordinates(coordinates.toString());
-                cell.setRow(i+1);
-                cell.setCol(j+1);
+                cell.setRow(i);
+                cell.setCol(j);
                 cellMatrix[i][j]=cell;
             }
         }
