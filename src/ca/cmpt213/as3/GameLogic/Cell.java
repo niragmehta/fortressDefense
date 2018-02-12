@@ -50,19 +50,29 @@ public class Cell {
         this.visibility = visibility;
     }
 
-
+    public void setHasTank(boolean hasTank) {
+        this.hasTank = hasTank;
+    }
 
     public char getSymbol(){
         char symbol = '@';
+        /*
         if(!visibility)
         {
             symbol = '~';
-        } else {
+        }
+
+        else {
             if(hasTank)
                 symbol = 'X';
             else
                 symbol = ' ';
         }
+        */
+        if(hasTank)
+            symbol='X';
+        else
+            symbol='~';
         return symbol;
     }
 }

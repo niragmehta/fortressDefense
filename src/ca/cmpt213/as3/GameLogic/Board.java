@@ -34,15 +34,8 @@ public class Board {
         return cellMatrix;
     }
 
-    public void updateCell(Cell cell, String coordinates){
 
-    }
-
-    public void populateBoard(TankCollection tankList) {
-
-    }
-
-    public boolean checkAllConditions(String coordinates,List<String> tankCoordinates)
+    public boolean findNextCoordinate(String coordinates, List<String> tankCoordinates)
     {
         final int UP=1;
         final int RIGHT=2;

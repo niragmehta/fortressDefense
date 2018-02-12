@@ -6,8 +6,7 @@ public class Tank {
     private int health;
     private boolean isFunctioning;
     private int damage;
-    private enum shape{L, T, I, O, Z}
-    // Is enum a capital letter?
+
 
     public int getDamage() {
         return damage;

@@ -3,6 +3,7 @@ package ca.cmpt213.as3.GameLogic;
 import ca.cmpt213.as3.UserInterface.UserInterface;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -28,9 +29,9 @@ public class Game
 
     //public void inBound()
 
-    public boolean placeTankInBoard(int tankNum,Board board, TankCollection tankList)
+    public void placeTankInBoard(int tankNumToBePlaced,Board board, TankCollection tankList)
     {
-        while(tankNum>0)
+        while(tankNumToBePlaced > 0)
         {
             //if number of trys for any single tank exceeds 10, we terminate the program
             if(tryCount==10)
@@ -49,25 +50,47 @@ public class Game
                 ++tryCount;
                 continue;
             }
+
             //adds first coordinate by default to tank
             tankCellCoordinates.add(randcoorindates);
+            //checks for second to 4th cell
 
+            boolean checkIfFourCoordinatesAddedForTanks=true;
+            for(int i=0;i<3;i++)
+            {
+                Collections.shuffle(tankCellCoordinates);
+                if(!board.findNextCoordinate(randcoorindates,tankCellCoordinates))
+                {
+                    ++tryCount;
+                    checkIfFourCoordinatesAddedForTanks=false;
+                    break;
+                }
+            }
+            if(!checkIfFourCoordinatesAddedForTanks)
+                continue;
 
+            //At this point we should have a complete list of coordinates to generate a single tank
+            Tank tank=new Tank();
+            for(int i=0;i<4;i++)
+            {
+                board.searchCell(tankCellCoordinates.get(i)).setHasTank(true);
 
+            }
 
         }
-        return true;
     }
 
 
 
     public static void main(String args[]){
+        Game game=new Game();
         Board board = new Board();
         TankCollection tankList = new TankCollection();
         UserInterface userInterface=new UserInterface();
+        game.placeTankInBoard(1,board,tankList);
         userInterface.displayGameBoard(board);
-        String t=userInterface.enterMoveInput();
-        System.out.println(t);
+        //String t=userInterface.enterMoveInput();
+        //System.out.println(t);
     }
 
 }
