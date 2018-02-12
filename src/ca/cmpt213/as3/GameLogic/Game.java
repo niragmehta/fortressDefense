@@ -61,7 +61,7 @@ public class Game
             for(int i=0;i<3;i++)
             {
                 Collections.shuffle(tankCellCoordinates);
-                if(!board.findNextCoordinate(randCoordinates,tankCellCoordinates))
+                if(!board.findNextCoordinate(tankCellCoordinates.get(0),tankCellCoordinates))
                 {
                     ++tryCount;
                     checkIfFourCoordinatesAddedForTanks=false;
