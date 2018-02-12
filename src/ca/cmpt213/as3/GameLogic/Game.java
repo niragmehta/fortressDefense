@@ -77,7 +77,7 @@ public class Game
             {
                 board.searchCell(tankCellCoordinates.get(i)).setHasTank(true);
             }
-
+            --tankNumToBePlaced;
         }
     }
 
@@ -88,7 +88,7 @@ public class Game
         Board board = new Board();
         TankCollection tankList = new TankCollection();
         UserInterface userInterface=new UserInterface();
-        game.placeTankInBoard(1,board,tankList);
+        game.placeTankInBoard(2,board,tankList);
         userInterface.displayGameBoard(board);
         //String t=userInterface.enterMoveInput();
         //System.out.println(t);

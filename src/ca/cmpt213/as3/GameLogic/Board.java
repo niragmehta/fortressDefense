@@ -128,8 +128,8 @@ public class Board {
             return false;
         if(searchCell(direction).hasTank())
             return false;
-        if(tankCooridnates.contains(direction))
-            return false;
+        //if(tankCooridnates.contains(direction))
+          //  return false;
 
         else
             return true;
