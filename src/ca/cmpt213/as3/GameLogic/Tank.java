@@ -6,24 +6,26 @@ public class Tank {
     private int health;
     private boolean isFunctioning;
     private int damage;
-    private char tankShape;
+    private enum shape{L, T, I, O, Z}
+    // Is enum a capital letter?
 
     public int getDamage() {
         return damage;
     }
 
+
     Tank(){
         this.health = 4;
         this.damage = this.calculateDamage();
-        tankShape = getRandomTankShape();
+        //this.shape = generateTankShape();
     }
 
-    private char getRandomTankShape(){
-        char[] shape = {'L', 'T', 'I', 'O', 'Z'};
+    /*
+    private shape generateTankShape(){
         Random r = new Random();
-        int index = r.nextInt(shape.length);
-        return shape[index];
+        int Result = r.nextInt(High-Low) + Low;
     }
+    */
 
     // changed into private from UML diagram
     private int calculateDamage(){
@@ -44,5 +46,6 @@ public class Tank {
     public void setIsFunctioning(boolean status) {
         this.isFunctioning = status;
     }
+
 
 }

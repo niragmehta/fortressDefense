@@ -4,38 +4,8 @@ public class Cell {
     private String coordinates;
     private boolean visibility;
     private boolean hasTank;
-    private int row;
-    private int col;
-
-    public void setHasTank(boolean hasTank) {
-        this.hasTank = hasTank;
-    }
-
-    public boolean isHasTank() {
-
-        return hasTank;
-    }
-
-    public char getRow() {
-
-        return row;
-    }
-
-    public int getCol() {
-        return col;
-    }
-
-    public void setRow(char row) {
-
-        this.row = row;
-    }
-
-    public void setCol(int col) {
-        this.col = col;
-    }
 
     public void setCoordinates(String coordinates) {
-
         this.coordinates = coordinates;
     }
 
@@ -43,17 +13,6 @@ public class Cell {
         this.coordinates = coordinates;
         this.visibility = false;
         this.hasTank = false;
-    }
-
-    public Cell(String coordinates) {
-        this.coordinates = coordinates;
-        // Extract x and y coordinates
-        row = (int)(coordinates.charAt(0) - 65);
-        col = (int)coordinates.charAt(1) - 1;
-        // if coordinates has y = 10, set y as
-        if(coordinates.length() == 3){
-            col = 9;
-        }
     }
 
     public String getCoordinates() {

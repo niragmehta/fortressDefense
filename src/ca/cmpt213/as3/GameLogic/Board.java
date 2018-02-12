@@ -12,23 +12,21 @@ public class Board {
         {
             for(int j=0;j<10;j++)
             {
-                //use stringbuilder to add coordinates to each cell in cellMatrix
                 StringBuilder coordinates=new StringBuilder();
                 coordinates.append((char)('A'+i));
-                coordinates.append((char)('1'+j));
-                cell.setRow((char)('A'+i));
-                cell.setCol(j+1);
+                coordinates.append((char)('0'+j+1));
                 cell.setCoordinates(coordinates.toString());
                 cellMatrix[i][j]=cell;
             }
         }
+
     }
 
     public Cell[][] getCellMatrix() {
         return cellMatrix;
     }
 
-    public void updateCell(Cell cell, String coordinates){
+    public void updateCell(Cell cell){
 
     }
 
@@ -36,10 +34,6 @@ public class Board {
 
     }
 
-    public Cell searchCell(String coodinates){
-
-         return cellMatrix[row][col];
-    }
 
 
 }
