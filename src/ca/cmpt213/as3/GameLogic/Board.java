@@ -62,7 +62,7 @@ public class Board {
 
         Collections.shuffle(shuffleDirectionChoice);
 
-        for(int i=0;i<4;i++)
+        for(int i=0;i<3;i++)
         {
             switch (shuffleDirectionChoice.get(0))
             {
@@ -128,11 +128,20 @@ public class Board {
             return false;
         if(searchCell(direction).hasTank())
             return false;
-        //if(tankCooridnates.contains(direction))
-          //  return false;
 
-        else
+        if(tankCooridnates.size()==1)
             return true;
+        if(tankCooridnates.size()>1)
+        {
+            for(int i=1;i<tankCooridnates.size();i++)
+            {
+                if(direction.equals(tankCooridnates.get(i)))
+                    return false;
+            }
+        }
+
+        return true;
+
     }
 
     public boolean checkTop(String coordinates, List<String> tankCooridnates)

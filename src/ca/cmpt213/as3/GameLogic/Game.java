@@ -71,13 +71,15 @@ public class Game
             if(!checkIfFourCoordinatesAddedForTanks)
                 continue;
 
+
             //At this point we should have a complete list of coordinates to generate a single tank
             Tank tank=new Tank();
-            for(int i=0;i<3;i++)
+            for(int i=0;i<4;i++)
             {
                 board.searchCell(tankCellCoordinates.get(i)).setHasTank(true);
             }
             --tankNumToBePlaced;
+            tryCount=0;
         }
     }
 
