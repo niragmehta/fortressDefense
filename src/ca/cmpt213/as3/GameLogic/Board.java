@@ -33,9 +33,9 @@ public class Board {
 
     }
 
-    public Cell searchCell(String coodinates){
+    public Cell searchCell(int row, int col){
 
-        return cellMatrix[cellMatrix.row][col];
+        return cellMatrix[row][col];
     }
 
 

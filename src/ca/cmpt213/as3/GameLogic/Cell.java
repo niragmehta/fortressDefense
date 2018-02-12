@@ -32,7 +32,14 @@ public class Cell {
         return coordinates;
     }
 
-    // Minor name change from UML
+    public int getRow() {
+        return row;
+    }
+
+    public int getCol() {
+        return col;
+    }
+
     public boolean isVisibility() {
         return visibility;
     }
@@ -47,11 +54,11 @@ public class Cell {
 
     public char getSymbol(){
         char symbol = '@';
-        if(visibility == false)
+        if(!visibility)
         {
             symbol = '~';
-        } else if (visibility == true){
-            if(hasTank == true)
+        } else {
+            if(hasTank)
                 symbol = 'X';
             else
                 symbol = ' ';

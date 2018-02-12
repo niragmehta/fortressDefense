@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class Game
 {
-    private String randCell(){
+    private String randCoordinates(){
         Random rand = new Random();
         char row='A';
         int col=1;
@@ -24,8 +24,8 @@ public class Game
 
     public boolean placeTankInBoard(Board board, TankCollection tankList){
         // randomise cell location
-        String target = randCell();
-        if(board.searchCell(target).hasTank())
+        String target = randCoordinates();
+        if(board.searchCell(board.(), board.getCol()).hasTank())
         {
            return false;
         }
