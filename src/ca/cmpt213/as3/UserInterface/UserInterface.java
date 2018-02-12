@@ -74,11 +74,11 @@ public class UserInterface {
 
             if(checkInputValidity(input)==false)
             {
-                System.out.println("Invalid target. Please enter a coordinate such as D10.");
+                System.out.println("Invalid target. Please enter a coordinte such as D10.");
                 continue;
             }
             else
-                return input.toLowerCase();
+                return input.toUpperCase();
 
         }
     }
@@ -97,7 +97,7 @@ public class UserInterface {
             //so far we've made sure our first character of input is valid
             if(input.length()==2)
             {
-                if(secondChar>='0' || secondChar <='9')
+                if(secondChar>='1' || secondChar <='9')
                 {
                     return true;
                 }
