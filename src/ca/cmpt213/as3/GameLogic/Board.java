@@ -29,7 +29,7 @@ public class Board {
                     cell.setRow(i);
                     cell.setCol(j);
                     cellMatrix[i][j]=cell;
-                    break;
+                    break;  //breaks inner loop
                 }
 
                 coordinates.append((char)('A'+i));
@@ -54,41 +54,40 @@ public class Board {
         final int DOWN=3;
         final int LEFT=4;
 
-        List<Integer> shuffleDirectionChoice= Arrays.asList(UP,RIGHT,DOWN,LEFT);
+        List<Integer> shuffleDirectionChoice  = new ArrayList<>();
+        shuffleDirectionChoice.add(UP);
+        shuffleDirectionChoice.add(RIGHT);
+        shuffleDirectionChoice.add(DOWN);
+        shuffleDirectionChoice.add(LEFT);
+
         Collections.shuffle(shuffleDirectionChoice);
 
         for(int i=0;i<4;i++)
         {
-            switch (shuffleDirectionChoice.get(0)){
+            switch (shuffleDirectionChoice.get(0))
+            {
                 case UP:    {
                     if(checkTop(coordinates,tankCoordinates))
                         return true;
-                    else
-                        shuffleDirectionChoice.remove(0);
                     break;
                 }
                 case RIGHT: {
                     if(checkRight(coordinates,tankCoordinates))
                         return true;
-                    else
-                        shuffleDirectionChoice.remove(0);
                     break;
                 }
                 case DOWN: {
                     if(checkBottom(coordinates,tankCoordinates))
                         return true;
-                    else
-                        shuffleDirectionChoice.remove(0);
                     break;
                 }
                 case LEFT: {
                     if(checkLeft(coordinates,tankCoordinates))
                         return true;
-                    else
-                        shuffleDirectionChoice.remove(0);
                     break;
                 }
             }
+            shuffleDirectionChoice.remove(0);
         }
 
         /*
