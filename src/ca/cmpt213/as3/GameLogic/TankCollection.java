@@ -13,12 +13,6 @@ public class TankCollection {
         this.cumulativeDmgOutput = 0;
     }
 
-    TankCollection(List<Tank> tankList){
-        this.tankList = tankList;
-        this.activeTankCount =0;
-        this.cumulativeDmgOutput = 0;
-    }
-
     public int getActiveTankCount() {
         for(int i=0;i<tankList.size();i++)  //finds number valid tanks and their index's in TankCollection
         {
@@ -38,6 +32,7 @@ public class TankCollection {
     }
 
     public List<Tank> getTankList() {
+
         return tankList;
     }
 

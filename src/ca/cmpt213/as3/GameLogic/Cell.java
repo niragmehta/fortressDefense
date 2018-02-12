@@ -4,7 +4,7 @@ public class Cell {
     private String coordinates;
     private boolean visibility;
     private boolean hasTank;
-    private int row;
+    private char row;
     private int col;
 
     public void setCoordinates(String coordinates) {
@@ -15,17 +15,6 @@ public class Cell {
         this.coordinates = coordinates;
         this.visibility = false;
         this.hasTank = false;
-    }
-
-    public Cell(String coordinates) {
-        this.coordinates = coordinates;
-        // Extract x and y coordinates
-        row = (int)(coordinates.charAt(0) - 65);
-        col = (int)coordinates.charAt(1) - 1;
-        // if coordinates has y = 10, set y as
-        if(coordinates.length() == 3){
-            col = 9;
-        }
     }
 
     public String getCoordinates() {
