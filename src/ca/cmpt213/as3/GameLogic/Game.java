@@ -2,11 +2,17 @@ package ca.cmpt213.as3.GameLogic;
 
 import ca.cmpt213.as3.UserInterface.UserInterface;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Game
 {
-    private String randCoordinates(){
+    int tryCount=0;
+    static final int ADD_TANK_FAIL=0;
+
+    private String generateRandCoordinates()
+    {
         Random rand = new Random();
         char row='A';
         int col=1;
@@ -22,14 +28,34 @@ public class Game
 
     //public void inBound()
 
-    public boolean placeTankInBoard(Board board, TankCollection tankList){
-        // randomise cell location
-        String target = randCoordinates();
-        if(board.searchCell(board.(), board.getCol()).hasTank())
+    public boolean placeTankInBoard(int tankNum,Board board, TankCollection tankList)
+    {
+        while(tankNum>0)
         {
-           return false;
+            //if number of trys for any single tank exceeds 10, we terminate the program
+            if(tryCount==10)
+            {
+                System.out.println("Sorry, we couldnt place all your tanks on the game board");
+                System.exit(ADD_TANK_FAIL);
+            }
+
+            //generates the root cell/first cell for the tank placement
+            String randcoorindates= generateRandCoordinates();
+            //list to store successfully added coorindates of each tank
+            List<String> tankCellCoordinates=new ArrayList<>();
+
+            if(board.searchCell(randcoorindates).hasTank())
+            {
+                ++tryCount;
+                continue;
+            }
+            //adds first coordinate by default to tank
+            tankCellCoordinates.add(randcoorindates);
+
+
+
+
         }
-        //setTankShapeOnBoard(board)
         return true;
     }
 

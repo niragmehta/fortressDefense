@@ -4,7 +4,7 @@ public class Cell {
     private String coordinates;
     private boolean visibility;
     private boolean hasTank;
-    private char row;
+    private int row;
     private int col;
 
     public void setCoordinates(String coordinates) {
@@ -21,8 +21,17 @@ public class Cell {
         return coordinates;
     }
 
+    public void setRow(int row) {
+        this.row = row;
+    }
+
+    public void setCol(int col) {
+        this.col = col;
+    }
+
     public int getRow() {
         return row;
+
     }
 
     public int getCol() {
@@ -40,6 +49,8 @@ public class Cell {
     public void setVisibility(boolean visibility) {
         this.visibility = visibility;
     }
+
+
 
     public char getSymbol(){
         char symbol = '@';
