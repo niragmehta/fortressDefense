@@ -14,15 +14,17 @@ public class Game
 
     private String generateRandCoordinates()
     {
-        Random rand = new Random();
-        char row='A';
-        int col=1;
-        row+=rand.nextInt(9);
-        col+=rand.nextInt(9);
-
         StringBuilder coordinates = new StringBuilder();
+        Random randrow = new Random();
+        Random randcol = new Random();
+        char row='A';
+        int col='1';
+        row+=randrow.nextInt(9);
+        col+=randcol.nextInt(8);
+
+
         coordinates.append(row);
-        coordinates.append((char)col);
+        coordinates.append((char) col);
 
         return  coordinates.toString();
     }
@@ -41,25 +43,25 @@ public class Game
             }
 
             //generates the root cell/first cell for the tank placement
-            String randcoorindates= generateRandCoordinates();
+            String randCoordinates= generateRandCoordinates();
             //list to store successfully added coorindates of each tank
             List<String> tankCellCoordinates=new ArrayList<>();
 
-            if(board.searchCell(randcoorindates).hasTank())
+            if(board.searchCell(randCoordinates).hasTank())
             {
                 ++tryCount;
                 continue;
             }
 
             //adds first coordinate by default to tank
-            tankCellCoordinates.add(randcoorindates);
+            tankCellCoordinates.add(randCoordinates);
             //checks for second to 4th cell
 
             boolean checkIfFourCoordinatesAddedForTanks=true;
             for(int i=0;i<3;i++)
             {
                 Collections.shuffle(tankCellCoordinates);
-                if(!board.findNextCoordinate(randcoorindates,tankCellCoordinates))
+                if(!board.findNextCoordinate(randCoordinates,tankCellCoordinates))
                 {
                     ++tryCount;
                     checkIfFourCoordinatesAddedForTanks=false;
@@ -71,10 +73,9 @@ public class Game
 
             //At this point we should have a complete list of coordinates to generate a single tank
             Tank tank=new Tank();
-            for(int i=0;i<4;i++)
+            for(int i=0;i<3;i++)
             {
                 board.searchCell(tankCellCoordinates.get(i)).setHasTank(true);
-
             }
 
         }

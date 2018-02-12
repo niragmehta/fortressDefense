@@ -57,6 +57,41 @@ public class Board {
         List<Integer> shuffleDirectionChoice= Arrays.asList(UP,RIGHT,DOWN,LEFT);
         Collections.shuffle(shuffleDirectionChoice);
 
+        for(int i=0;i<4;i++)
+        {
+            switch (shuffleDirectionChoice.get(0)){
+                case UP:    {
+                    if(checkTop(coordinates,tankCoordinates))
+                        return true;
+                    else
+                        shuffleDirectionChoice.remove(0);
+                    break;
+                }
+                case RIGHT: {
+                    if(checkRight(coordinates,tankCoordinates))
+                        return true;
+                    else
+                        shuffleDirectionChoice.remove(0);
+                    break;
+                }
+                case DOWN: {
+                    if(checkBottom(coordinates,tankCoordinates))
+                        return true;
+                    else
+                        shuffleDirectionChoice.remove(0);
+                    break;
+                }
+                case LEFT: {
+                    if(checkLeft(coordinates,tankCoordinates))
+                        return true;
+                    else
+                        shuffleDirectionChoice.remove(0);
+                    break;
+                }
+            }
+        }
+
+        /*
         while(!shuffleDirectionChoice.isEmpty()) {
             int lastElement = shuffleDirectionChoice.size() - 1;
             switch (shuffleDirectionChoice.get(lastElement)) {
@@ -82,7 +117,9 @@ public class Board {
                 }
             }
             shuffleDirectionChoice.remove(lastElement);
-        }
+        }*/
+
+
         return false;
     }
 
