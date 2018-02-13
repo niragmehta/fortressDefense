@@ -114,7 +114,9 @@ public class Game
             {
                 System.out.println("Hit!");
                 cellTemp.setVisibility(true);
-                Tank tankTemp=tankCollection.findTankViaCoordinate(coordinateInput);
+                int tankIndexInCollection=tankCollection.findTankViaCoordinate(coordinateInput);
+                Tank tankTemp=tankCollection.getTankList().get(tankIndexInCollection);
+                //Tank tankTemp=tankCollection.findTankViaCoordinate(coordinateInput);
                 tankTemp.decrementTankHealth();
                 tankTemp.calculateAndGetNewDamage();
                 //check if tank is destroyed
@@ -137,6 +139,8 @@ public class Game
                 userInterface.displayGameBoard(board);
                 userInterface.displayFortressHealth(fortress);
                 System.out.println("Congratulations! You won!");
+
+                userInterface.displayGameBoardOnWinOrLoss(board,tankCollection);
                 return true;
             }
             else if(checkForVictory(tankCollection,fortress)==DEFEAT)
@@ -144,6 +148,8 @@ public class Game
                 userInterface.displayGameBoard(board);
                 userInterface.displayFortressHealth(fortress);
                 System.out.println("I'm sorry, your fortress has been smashed!");
+
+                userInterface.displayGameBoardOnWinOrLoss(board,tankCollection);
                 return false;
             }
 
@@ -176,13 +182,19 @@ public class Game
 
     public static void main(String args[]){
         Game game=new Game();
+        UserInterface userInterface=new UserInterface();
+        userInterface.displayIntroMessage(4);
+
         Board board = new Board();
         Fortress fortress=new Fortress();
         TankCollection tankList = new TankCollection();
-        UserInterface userInterface=new UserInterface();
+
+
+
+
         game.placeTankInBoard(1,board,tankList);
-        //userInterface.displayGameBoard(board);
         game.playGame(board,tankList,fortress,userInterface);
+
     }
 
 }

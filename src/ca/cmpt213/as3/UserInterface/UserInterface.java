@@ -22,7 +22,7 @@ public class UserInterface {
 
     public void displayGameBoard(Board board)
     {
-        System.out.println("\n" + "Game Board:");
+        System.out.println("Game Board:");
 
         System.out.println("       1  2  3  4  5  6  7  8  9  10\n");   //display columns
         for(int i=0;i<10;i++)
@@ -32,6 +32,42 @@ public class UserInterface {
             {
                 char charToDisplay=board.getCellMatrix()[i][j].getSymbol();
                 System.out.print(charToDisplay+"  ");
+            }
+            System.out.println();   //leave a line for every row
+        }
+        System.out.println();
+    }
+
+    public void displayGameBoardOnWinOrLoss(Board board,TankCollection tankCollection)
+    {
+        System.out.println("Game Board:");
+
+        System.out.println("       1  2  3  4  5  6  7  8  9  10\n");   //display columns
+        for(int i=0;i<10;i++)
+        {
+            System.out.print("    " + (char) ('A' + i)+"  ");
+            for(int j=0;j<10;j++)
+            {
+                StringBuilder str=new StringBuilder();
+                str.append((char)('A'+i));
+                str.append((char)('1'+j));
+                Cell cellTemp=board.searchCell(str.toString());
+                if(cellTemp.hasTank())
+                {
+                    int tankIndex=tankCollection.findTankViaCoordinate(str.toString());
+                    if(cellTemp.isVisibility()) //ie the cell has been hit
+                    {
+                        char charToDisplay=(char)('a'+tankIndex);
+                        System.out.print(charToDisplay+"  ");
+                    }
+                    else
+                    {
+                        char charToDisplay=(char)('A'+tankIndex);
+                        System.out.print(charToDisplay+"  ");
+                    }
+                }
+                else
+                    System.out.print("~  ");
             }
             System.out.println();   //leave a line for every row
         }
@@ -90,12 +126,13 @@ public class UserInterface {
         char firstChar=input.charAt(0);
         char secondChar=input.charAt(1);
 
+
         if((firstChar >= 'A' && firstChar <= 'J') || (firstChar >= 'a' && firstChar <= 'j'))
         {
             //so far we've made sure our first character of input is valid
             if(input.length()==2)
             {
-                if(secondChar>='1' || secondChar <='9')
+                if(secondChar>='1' && secondChar <='9')
                 {
                     return true;
                 }
@@ -115,8 +152,6 @@ public class UserInterface {
             }
 
         }
-        else
-            return false;
 
         return false;
 

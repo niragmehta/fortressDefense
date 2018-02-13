@@ -53,10 +53,11 @@ public class TankCollection {
         }
     }
 
-    public Tank findTankViaCoordinate(String coordinate)
+    public int findTankViaCoordinate(String coordinate)
     {
         int tankIndex=0;
         boolean flag=false;
+
         for(int i=0;i<tankList.size();i++,tankIndex++)
         {
             for(int j=0;j<4;j++)
@@ -71,7 +72,9 @@ public class TankCollection {
                 break;
         }
         //return tank at specified index from tankcollection
-        return tankList.get(tankIndex);
+
+        //return tankList.get(tankIndex);
+        return tankIndex;
     }
 
     public int getCumulativeDmgOutput() {
