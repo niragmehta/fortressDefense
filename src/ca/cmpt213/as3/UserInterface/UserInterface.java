@@ -2,8 +2,6 @@ package ca.cmpt213.as3.UserInterface;
 
 import ca.cmpt213.as3.GameLogic.*;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -47,7 +45,7 @@ public class UserInterface {
 
     public void displayAliveTanksWithDmg(TankCollection tankCollection)
     {
-        int activeTankCount=tankCollection.getActiveTankCount();
+        int activeTankCount=tankCollection.getAndSetActiveTankCount();
         int counter=0;
         for(int i=0;i<tankCollection.getSize();i++)
         {

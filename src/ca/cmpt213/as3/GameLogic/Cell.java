@@ -55,8 +55,8 @@ public class Cell {
     }
 
     public char getSymbol(){
-        char symbol = '@';
-        /*
+        char symbol;
+
         if(!visibility)
         {
             symbol = '~';
@@ -68,11 +68,13 @@ public class Cell {
             else
                 symbol = ' ';
         }
-        */
+
+        /*
         if(hasTank)
             symbol='X';
         else
             symbol='~';
+            */
         return symbol;
     }
 }

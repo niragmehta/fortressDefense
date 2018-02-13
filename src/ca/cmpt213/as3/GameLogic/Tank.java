@@ -1,41 +1,71 @@
 package ca.cmpt213.as3.GameLogic;
 
-import java.util.Random;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Tank {
     private int health;
     private boolean isFunctioning;
     private int damage;
+    private List<String> tankCoordinates;
 
 
     public int getDamage() {
         return damage;
     }
 
+    public List<String> getTankCoordinates() {
+        return tankCoordinates;
+    }
+
+    public void setTankCoordinates(List<String> tankCoordinates) {
+        this.tankCoordinates = tankCoordinates;
+    }
 
     Tank(){
         this.health = 4;
-        this.damage = this.calculateDamage();
-        //this.shape = generateTankShape();
+        this.damage = this.calculateAndGetNewDamage();
+        this.isFunctioning=true;
+        tankCoordinates=new ArrayList<>();
     }
 
-    /*
-    private shape generateTankShape(){
-        Random r = new Random();
-        int Result = r.nextInt(High-Low) + Low;
+    public void decrementTankHealth()
+    {
+        --this.health;
     }
-    */
 
-    // changed into private from UML diagram
-    private int calculateDamage(){
-        int damage = 0;
-        // need to code the damage output
+    Tank(List<String> tankCoordinates)
+    {
+        this.health = 4;
+        this.isFunctioning=true;
+        this.damage = this.calculateAndGetNewDamage();
+        this.tankCoordinates=tankCoordinates;
+    }
+
+    int calculateAndGetNewDamage(){
+
+        if(health==4)
+            damage = 20;
+        else if(health==3)
+            damage=5;
+        else if (health==2)
+            damage=2;
+        else if(health==1)
+            damage=1;
+        else
+            damage=0;
         return damage;
     }
 
-    // might need to refactor name since, tank can only decrement health by 1
-    public void updateHealth(){
-        this.health--;
+    public boolean checkIsFunctioning()
+    {
+        if(health<=0)
+        {
+            isFunctioning=false;
+            return false;
+        }
+        else
+            return true;
     }
 
     public boolean isFunctioning(){

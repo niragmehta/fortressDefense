@@ -2,15 +2,15 @@ package ca.cmpt213.as3.GameLogic;
 
 import ca.cmpt213.as3.UserInterface.UserInterface;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Game
 {
     int tryCount=0;
     static final int ADD_TANK_FAIL=0;
+    static final int VICTORY=1;
+    static final int DEFEAT=-1;
+    static final int CONTINUE_GAME=0;
 
     private String generateRandCoordinates()
     {
@@ -73,27 +73,116 @@ public class Game
 
 
             //At this point we should have a complete list of coordinates to generate a single tank
-            Tank tank=new Tank();
             for(int i=0;i<4;i++)
             {
                 board.searchCell(tankCellCoordinates.get(i)).setHasTank(true);
             }
             --tankNumToBePlaced;
+            Tank tank=new Tank(tankCellCoordinates);
+            tankList.getTankList().add(tank);
             tryCount=0;
         }
     }
 
+    public boolean playGame(Board board,TankCollection tankCollection,Fortress fortress,UserInterface userInterface)
+    {
+        Stack<String> coordinateStack=new Stack<>();
+        while (checkForVictory(tankCollection,fortress)==CONTINUE_GAME)
+        {
+            userInterface.displayGameBoard(board);
+            userInterface.displayFortressHealth(fortress);
+            String coordinateInput=userInterface.enterMoveInput();
+
+            Cell cellTemp=board.searchCell(coordinateInput);
+            if(!cellTemp.hasTank())
+            {
+                System.out.println("Miss");
+                cellTemp.setVisibility(true);
+                tankCollection.calculateCumalativeDmgOutput();
+                fortress.updateHealth(tankCollection);
+                coordinateStack.push(coordinateInput);
+            }
+            //repeated coordinate by user then we dont want to decrement health of tank again. It essentially has no effect
+            else if(cellTemp.hasTank() && coordinateStack.contains(coordinateInput))
+            {
+                System.out.println("Hit");
+                tankCollection.calculateCumalativeDmgOutput();
+                fortress.updateHealth(tankCollection);
+                //do nothing since coordinate was simply repeated
+            }
+            else if(cellTemp.hasTank())
+            {
+                System.out.println("Hit!");
+                cellTemp.setVisibility(true);
+                Tank tankTemp=tankCollection.findTankViaCoordinate(coordinateInput);
+                tankTemp.decrementTankHealth();
+                tankTemp.calculateAndGetNewDamage();
+                //check if tank is destroyed
+                if(tankTemp.checkIsFunctioning()==false)
+                {
+                    tankTemp.setIsFunctioning(false);
+                    tankCollection.decrementActiveTankCount();
+                }
+
+                //calculates total tank damage (by decreasing) and updates fortress health
+                tankCollection.calculateCumalativeDmgOutput();
+                fortress.updateHealth(tankCollection);
+                coordinateStack.push(coordinateInput);
+            }
+            userInterface.displayAliveTanksWithDmg(tankCollection);
+            System.out.println();
+
+            if(checkForVictory(tankCollection,fortress)==VICTORY)
+            {
+                userInterface.displayGameBoard(board);
+                userInterface.displayFortressHealth(fortress);
+                System.out.println("Congratulations! You won!");
+                return true;
+            }
+            else if(checkForVictory(tankCollection,fortress)==DEFEAT)
+            {
+                userInterface.displayGameBoard(board);
+                userInterface.displayFortressHealth(fortress);
+                System.out.println("I'm sorry, your fortress has been smashed!");
+                return false;
+            }
+
+            continue;
+
+        }
+        //these lines should never execute
+        if(checkForVictory(tankCollection,fortress)==VICTORY)
+        {
+            return true;
+        }
+        else
+            return false;
+
+    }
+
+
+
+    public int checkForVictory(TankCollection tankCollection,Fortress fortress)
+    {
+        if(tankCollection.getAndSetActiveTankCount()<=0)
+            return 1;
+        else if(fortress.getHealth()<=0)
+            return -1;
+        else
+            return 0;
+
+    }
 
 
     public static void main(String args[]){
         Game game=new Game();
         Board board = new Board();
+        Fortress fortress=new Fortress();
         TankCollection tankList = new TankCollection();
         UserInterface userInterface=new UserInterface();
-        game.placeTankInBoard(2,board,tankList);
-        userInterface.displayGameBoard(board);
-        //String t=userInterface.enterMoveInput();
-        //System.out.println(t);
+        game.placeTankInBoard(1,board,tankList);
+        //userInterface.displayGameBoard(board);
+        game.playGame(board,tankList,fortress,userInterface);
     }
 
 }
