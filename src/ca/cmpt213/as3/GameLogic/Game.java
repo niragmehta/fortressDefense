@@ -7,6 +7,7 @@ import java.util.*;
 public class Game
 {
     int tryCount=0;
+    static final int INCORRECT_ARGUMENT=-1;
     static final int ADD_TANK_FAIL=0;
     static final int VICTORY=1;
     static final int DEFEAT=-1;
@@ -183,16 +184,39 @@ public class Game
     public static void main(String args[]){
         Game game=new Game();
         UserInterface userInterface=new UserInterface();
-        userInterface.displayIntroMessage(4);
-
         Board board = new Board();
         Fortress fortress=new Fortress();
         TankCollection tankList = new TankCollection();
+        int tankCount=5;
+        boolean cheatActivated=false;
 
+        userInterface.displayIntroMessage(tankCount);
+        if(args.length==1)
+        {
+            try {
+                tankCount=Integer.parseInt(args[0]);
+            }
+            catch (Exception e){
+                System.out.println("first argument is invalid");
+                System.exit(INCORRECT_ARGUMENT);
+            }
+        }
+        else if(args.length==2)
+        {
+           if(args[1].equals("--cheat"))
+           {
+                cheatActivated=true;
+           }
+           else
+               {
+                   System.out.println("first argument is invalid");
+                   System.exit(INCORRECT_ARGUMENT);
+               }
+        }
 
-
-
-        game.placeTankInBoard(1,board,tankList);
+        game.placeTankInBoard(tankCount,board,tankList);
+        if(cheatActivated)
+            userInterface.displayGameBoardOnWinOrLoss(board,tankList);
         game.playGame(board,tankList,fortress,userInterface);
 
     }

@@ -67,7 +67,7 @@ public class UserInterface {
                     }
                 }
                 else
-                    System.out.print("~  ");
+                    System.out.print(".  ");
             }
             System.out.println();   //leave a line for every row
         }
