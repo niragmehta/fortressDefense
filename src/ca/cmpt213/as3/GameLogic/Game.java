@@ -6,23 +6,62 @@ import java.util.*;
 
 public class Game
 {
-    int tryCount=0;
-    static final int INCORRECT_ARGUMENT=-1;
-    static final int ADD_TANK_FAIL=0;
-    static final int VICTORY=1;
-    static final int DEFEAT=-1;
-    static final int CONTINUE_GAME=0;
+    private int tryCount=0;
+    private static final int INCORRECT_ARGUMENT=-1;
+    private static final int ADD_TANK_FAIL=0;
+    private static final int VICTORY=1;
+    private static final int DEFEAT=-1;
+    private static final int CONTINUE_GAME=0;
+
+    public static void main(String args[]){
+        Game game=new Game();
+        UserInterface userInterface=new UserInterface();
+        Board board = new Board();
+        Fortress fortress=new Fortress();
+        TankCollection tankList = new TankCollection();
+
+        int tankCount=Integer.parseInt(args[0]);
+        boolean cheatActivated=false;
+
+        userInterface.displayIntroMessage(tankCount);
+        if(args.length==1)
+        {
+            try {
+                tankCount=Integer.parseInt(args[0]);
+            }
+            catch (Exception e){
+                System.out.println("first argument is invalid");
+                System.exit(INCORRECT_ARGUMENT);
+            }
+        }
+        else if(args.length==2)
+        {
+            if(args[1].equals("--cheat"))
+            {
+                cheatActivated=true;
+            }
+            else
+            {
+                System.out.println("first argument is invalid");
+                System.exit(INCORRECT_ARGUMENT);
+            }
+        }
+        game.placeTankInBoard(tankCount,board,tankList);
+        if(cheatActivated)
+            userInterface.displayGameBoardOnWinOrLoss(board,tankList);
+        game.playGame(board,tankList,fortress,userInterface);
+    }
 
     private String generateRandCoordinates()
     {
         StringBuilder coordinates = new StringBuilder();
-        Random randrow = new Random();
-        Random randcol = new Random();
+        Random randRow = new Random();
+        Random randCol = new Random();
         char row='A';
         int col='1';
-        row+=randrow.nextInt(9);
-        col+=randcol.nextInt(8);
 
+        row+= randRow.nextInt(9);
+        col+=randCol.nextInt(8);
 
         coordinates.append(row);
         coordinates.append((char) col);
@@ -179,46 +218,4 @@ public class Game
             return 0;
 
     }
-
-
-    public static void main(String args[]){
-        Game game=new Game();
-        UserInterface userInterface=new UserInterface();
-        Board board = new Board();
-        Fortress fortress=new Fortress();
-        TankCollection tankList = new TankCollection();
-        int tankCount=5;
-        boolean cheatActivated=false;
-
-        userInterface.displayIntroMessage(tankCount);
-        if(args.length==1)
-        {
-            try {
-                tankCount=Integer.parseInt(args[0]);
-            }
-            catch (Exception e){
-                System.out.println("first argument is invalid");
-                System.exit(INCORRECT_ARGUMENT);
-            }
-        }
-        else if(args.length==2)
-        {
-           if(args[1].equals("--cheat"))
-           {
-                cheatActivated=true;
-           }
-           else
-               {
-                   System.out.println("first argument is invalid");
-                   System.exit(INCORRECT_ARGUMENT);
-               }
-        }
-
-        game.placeTankInBoard(tankCount,board,tankList);
-        if(cheatActivated)
-            userInterface.displayGameBoardOnWinOrLoss(board,tankList);
-        game.playGame(board,tankList,fortress,userInterface);
-
-    }
-
 }
