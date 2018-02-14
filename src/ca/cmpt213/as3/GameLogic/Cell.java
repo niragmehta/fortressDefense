@@ -1,5 +1,9 @@
 package ca.cmpt213.as3.GameLogic;
 
+/**
+ * This class is a model of a cell composing the game board
+ */
+
 public class Cell {
     private String coordinates;
     private boolean visibility;
@@ -12,13 +16,12 @@ public class Cell {
     }
 
     public Cell() {
-        this.coordinates = coordinates;
+        this.coordinates = "";
         this.visibility = false;
         this.hasTank = false;
-    }
+        this.row=0;
+        this.col=0;
 
-    public String getCoordinates() {
-        return coordinates;
     }
 
     public void setRow(int row) {
@@ -27,15 +30,6 @@ public class Cell {
 
     public void setCol(int col) {
         this.col = col;
-    }
-
-    public int getRow() {
-        return row;
-
-    }
-
-    public int getCol() {
-        return col;
     }
 
     public boolean isVisibility() {
@@ -56,25 +50,13 @@ public class Cell {
 
     public char getSymbol(){
         char symbol;
-
         if(!visibility)
-        {
             symbol = '~';
-        }
 
-        else {
-            if(hasTank)
-                symbol = 'X';
-            else
-                symbol = ' ';
-        }
-
-        /*
-        if(hasTank)
-            symbol='X';
+        else if (hasTank)
+            symbol = 'X';
         else
-            symbol='~';
-            */
+            symbol = ' ';
         return symbol;
     }
 }

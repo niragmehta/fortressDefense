@@ -4,6 +4,9 @@ import ca.cmpt213.as3.GameLogic.*;
 
 import java.util.Scanner;
 
+/**
+ * This class is the user interface class in charge of printing the board
+ */
 public class UserInterface {
     public void displayIntroMessage(int tankCount)
     {
@@ -30,7 +33,7 @@ public class UserInterface {
                 char charToDisplay=board.getCellMatrix()[i][j].getSymbol();
                 System.out.print(charToDisplay+"  ");
             }
-            System.out.println();   //leave a line for every row
+            System.out.println();
         }
         System.out.println();
     }
@@ -39,7 +42,7 @@ public class UserInterface {
     {
         System.out.println("Game Board:");
 
-        System.out.println("       1  2  3  4  5  6  7  8  9  10\n");   //display columns
+        System.out.println("       1  2  3  4  5  6  7  8  9  10");   //display columns
         for(int i=0;i<10;i++)
         {
             System.out.print("    " + (char) ('A' + i)+"  ");

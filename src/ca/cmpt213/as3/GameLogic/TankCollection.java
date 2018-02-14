@@ -3,6 +3,9 @@ package ca.cmpt213.as3.GameLogic;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class is in charge of managing a collection of tanks in a List
+ */
 public class TankCollection {
     private List<Tank> tankList;
     private int activeTankCount;

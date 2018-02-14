@@ -1,5 +1,8 @@
 package ca.cmpt213.as3.GameLogic;
 
+/**
+ * This class is a model of a fortress for the fortress defence game
+ */
 public class Fortress {
     private int health;
 

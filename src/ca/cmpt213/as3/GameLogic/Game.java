@@ -4,6 +4,10 @@ import ca.cmpt213.as3.UserInterface.UserInterface;
 
 import java.util.*;
 
+/**
+ * This class is the controler class in charge of running the game using instances of the different game model
+ * components and the UI class
+ */
 public class Game
 {
     private int tryCount=0;
@@ -36,6 +40,13 @@ public class Game
         }
         else if(args.length==2)
         {
+            try {
+                tankCount=Integer.parseInt(args[0]);
+            }
+            catch (Exception e){
+                System.out.println("first argument is invalid");
+                System.exit(INCORRECT_ARGUMENT);
+            }
             if(args[1].equals("--cheat"))
             {
                 cheatActivated=true;
