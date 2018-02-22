@@ -11,6 +11,8 @@ import java.util.*;
 public class Game
 {
     private int tryCount=0;
+    private static final int ONEARG=1;
+    private static final int TWOARGS=2;
     private static final int INCORRECT_ARGUMENT=-1;
     private static final int ADD_TANK_FAIL=0;
     private static final int VICTORY=1;
@@ -28,7 +30,7 @@ public class Game
         boolean cheatActivated=false;
 
         userInterface.displayIntroMessage(tankCount);
-        if(args.length==1)
+        if(args.length==ONEARG)
         {
             try {
                 tankCount=Integer.parseInt(args[0]);
@@ -38,7 +40,7 @@ public class Game
                 System.exit(INCORRECT_ARGUMENT);
             }
         }
-        else if(args.length==2)
+        else if(args.length==TWOARGS)
         {
             try {
                 tankCount=Integer.parseInt(args[0]);
@@ -62,6 +64,8 @@ public class Game
             userInterface.displayGameBoardOnWinOrLoss(board,tankList);
         game.playGame(board,tankList,fortress,userInterface);
     }
+
+
 
     private String generateRandCoordinates()
     {

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Tank {
+    final int TANKHEALTHMAX =4;
     private int health;
     private boolean isFunctioning;
     private int damage;
@@ -23,7 +24,7 @@ public class Tank {
     }
 
     Tank(){
-        this.health = 4;
+        this.health = TANKHEALTHMAX;
         this.damage = this.calculateAndGetNewDamage();
         this.isFunctioning=true;
         tankCoordinates=new ArrayList<>();
@@ -36,7 +37,7 @@ public class Tank {
 
     Tank(List<String> tankCoordinates)
     {
-        this.health = 4;
+        this.health = TANKHEALTHMAX;
         this.isFunctioning=true;
         this.damage = this.calculateAndGetNewDamage();
         this.tankCoordinates=tankCoordinates;

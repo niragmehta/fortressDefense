@@ -4,10 +4,12 @@ package ca.cmpt213.as3.GameLogic;
  * This class is a model of a fortress for the fortress defence game
  */
 public class Fortress {
+
+    final int MAXFORTRESSHEALTH=1500;
     private int health;
 
     public Fortress() {
-        this.health = 1500;
+        this.health = MAXFORTRESSHEALTH;
     }
 
     public void updateHealth(TankCollection tankList){
