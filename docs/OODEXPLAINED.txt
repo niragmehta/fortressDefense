@@ -1,4 +1,4 @@
-In our OOD 
+In our OOD (Object Oriented Design)
 we have created classes that handle the game logc and UI design seperately.
 
 To Draw the game board, we have
