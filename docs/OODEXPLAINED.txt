@@ -5,10 +5,9 @@ To Draw the game board,
 -a Board class is designed to store a grid of Cell objects.
 -For every user input, the status of affected cell is changed and the board object is updated accordingly.
 
-
-To handle the active tank collection and fortress health
--we have designed a class called Tank that is used to instantiate each tank on the board
--Each tank holds its own attributes such as health, damage and shape (essentially the coordinates)
+To handle the active tank collection and fortress health,
+-a Tank class is designed to instantiate each Tank object on the Board object.
+-each Tankobject  holds its own attributes such as health, damage and shape (essentially the coordinates).
 -We then create a class called TankCollection that holds the entire collection of tanks in it
 -TankCollection has its own attributes (like cumalativeDmgOutput) which are calculated based the cumulative attributes of all tanks within it
 -We create a class called Fortress that hols the health of the user's Fortress
