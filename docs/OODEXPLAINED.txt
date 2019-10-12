@@ -3,7 +3,7 @@ In this OOD (Object Oriented Design),classes are created to handle game logic an
 To Draw the game board, we have
 -have a class called Cell that represents each and every individual coordinate
 -a Board class is designed to store a grid of Cell objects.
--For every input made by the user, we update our board object accordingly, ie by manipulating the status of the affected cell
+-For every user input, the status of affected cell is changed and the board object is updated accordingly.
 
 
 To handle the active tank collection and fortress health
