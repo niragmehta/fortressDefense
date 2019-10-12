@@ -1,5 +1,5 @@
 In our OOD (Object Oriented Design)
-we have created classes that handle the game logc and UI design seperately.
+we have created classes that handle the game logic and UI design seperately.
 
 To Draw the game board, we have
 -have a class called Cell that represents each and every individual coordinate
