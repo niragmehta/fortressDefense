@@ -3,7 +3,7 @@ we have created classes that handle the game logc and UI design seperately.
 
 To Draw the game board, we have
 -have a class called Cell that represents each and every individual coordinate
--designed a class called Board that stores a grid of Cells
+-a Board class is designed to store a grid of Cell objects.
 -For every input made by the user, we update our board object accordingly, ie by manipulating the status of the affected cell
 
 
