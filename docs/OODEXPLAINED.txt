@@ -13,12 +13,11 @@ To handle the active tank collection and fortress health,
 -We create a class called Fortress that hols the health of the user's Fortress
 -Based on the status of tanks in the TankCollection object, we reduce the health of our fortress accordingly until the user wins/loses
 
-To instantiate and initialize the board with tanks, we
-Create a Game class which
--adds tanks to the Board object
--updates the board object
--checks if the user is victorious or not (ie the user loses)
--displays the first introductory message on the screen
+To instantiate and initialize the Board object with Tank objects, a Game class is designed to
+-add Tank object to the Board object.
+-update the Board object.
+-check if user is victorious.
+-display first introductory message on screen.
 
 To handle Ui,a Display class is designed to
 -display the grid of Board Object and the status of Cell objects.
