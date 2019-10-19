@@ -20,8 +20,7 @@ Create a Game class which
 -checks if the user is victorious or not (ie the user loses)
 -displays the first introductory message on the screen
 
-To handle Ui
-We design a display class called Display that
--displays the active board grid with the status of each and every cell
--display the damage output of every tank
--displays health of fortress
+To handle Ui,a Display class is designed to
+-display the grid of Board Object and the status of Cell objects.
+-display damage output of Tank objects.
+-display health of Fortress objects.
