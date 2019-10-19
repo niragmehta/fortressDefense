@@ -10,8 +10,8 @@ To handle the active tank collection and fortress health,
 -each Tank object holds its own attributes such as health, damage and shape (essentially the coordinates).
 -We then create a class called TankCollection that holds the entire collection of tanks in it
 -TankCollection has its own attributes (like cumalativeDmgOutput) which are calculated based the cumulative attributes of all tanks within it
--We create a class called Fortress that hols the health of the user's Fortress
--Based on the status of tanks in the TankCollection object, we reduce the health of our fortress accordingly until the user wins/loses
+-a Fortress class is designed to hold the health of user's Fortress.
+-based on status of Tank objects in TankCollection object, the health of the fortress is reduced accordingly until user wins/loses.
 
 To instantiate and initialize the Board object with Tank objects, a Game class is designed to
 -add Tank object to the Board object.
